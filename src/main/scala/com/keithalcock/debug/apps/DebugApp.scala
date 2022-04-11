@@ -4,5 +4,6 @@ import com.keithalcock.debug.Debug
 
 object DebugApp extends App:
   println("Hello, world!")
-  Debug.trace(5, "nothing", true)
+//  Debug.trace(5, "nothing", true)
   Debug.traceOne(5)
+  println("Good-bye, cruel world.")

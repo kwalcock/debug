@@ -5,6 +5,7 @@ import scala.quoted.Quotes
 
 object Debug:
 
+  // Info just does the values
   inline def info(anys: Any*): Unit = println("info")
 
   // trace gives line and file
@@ -14,10 +15,8 @@ object Debug:
       println(any.toString)
     }
 
-  inline def traceOne(inline any: Any): Unit = ${traceOneImpl('any)}
+  inline def traceOne(inline any: Any): Any = ${ traceOneImpl('any) }
 
   def traceOneImpl(expr: Expr[Any])(using Quotes): Expr[Any] =
     println(expr.show)
     expr
-
-//    '{ println("Simon says, the value of " + ${Expr(expr.show)} + " is " + $expr) }
